@@ -3,18 +3,21 @@ img{
     width: 200px;
 }
 
+
 .card{
     background-color: rgb(31, 201, 192);
-    float: left;
     margin: 10px 10px 0 0;
     padding: 0px 25px 10px 10px;
     border-radius: 14px; 
-    text-align: center;       
+    text-align: center;     
+    display: inline-block;
+    position: relative;
+     
 }
 
 .card:hover{
    background-color: rgb(24, 230, 209);
-   margin-top: 5px;
+   margin-top: 10px;
    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
