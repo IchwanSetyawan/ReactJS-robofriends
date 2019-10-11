@@ -1,25 +1,37 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import CardList from './CardList/CardList';
+import {robots} from './robots';
+import SearchBox from './SearchBox'; 
 import './App.css';
 
 
-
-
-
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-          <span>Ichwan Setyawan</span>
+    constructor(){
+        super()
+        this.state = {
+            robots : robots,
+            searchField : ''
+        }
+    }
 
-        </div>
-      
-      </div>
+    onSearchChange= (event) => {
+        this.setState({searchField : event.target.value })         
+    }
+
+  render(){
+    const filteredRobots =  this.state.robots.filter(robots =>{
+        return robots.name.toLowerCase().includes(this.state.searchField.toLowerCase())
+    })
+    return(
+      <div className="all">
+        <h1>RoboFriends</h1>
+        <SearchBox searchChange={this.onSearchChange}/>
+        <CardList robots={filteredRobots}/>
+      </div> 
     );
   }
+  
 }
 
 export default App;
+
